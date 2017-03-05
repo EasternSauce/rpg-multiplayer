@@ -4,3 +4,8 @@
 src_0.1
 src_0.2
 .idea/*
+out/*
+target/*
+.idea/
+out/
+target/
