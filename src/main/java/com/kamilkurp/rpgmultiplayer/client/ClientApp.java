@@ -49,19 +49,6 @@ public class ClientApp extends StateBasedGame {
         this.enterState(START_MENU_STATE);
     }
 
-
-    public static void main(String[] args) {
-        Input.disableControllers();
-
-        try {
-            AppGameContainer app = new AppGameContainer(new ClientApp());
-            app.setDisplayMode(WIDTH, HEIGHT, FULLSCREEN);
-            app.start();
-        } catch(SlickException e) {
-            e.printStackTrace();
-        }
-    }
-
     public boolean closeRequested() {
         gamePlayState.onExit();
         return true;
@@ -73,5 +60,18 @@ public class ClientApp extends StateBasedGame {
 
     public Character getPlayer() {
         return player;
+    }
+
+
+    public static void main(String[] args) {
+        Input.disableControllers();
+
+        try {
+            AppGameContainer app = new AppGameContainer(new ClientApp());
+            app.setDisplayMode(WIDTH, HEIGHT, FULLSCREEN);
+            app.start();
+        } catch(SlickException e) {
+            e.printStackTrace();
+        }
     }
 }

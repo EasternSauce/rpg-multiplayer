@@ -6,6 +6,7 @@ import com.kamilkurp.rpgmultiplayer.util.Direction;
 import com.kamilkurp.rpgmultiplayer.util.Level;
 import com.kamilkurp.rpgmultiplayer.util.Network.*;
 import org.newdawn.slick.geom.Rectangle;
+import org.newdawn.slick.geom.Vector2f;
 
 import java.util.Set;
 
@@ -148,11 +149,11 @@ public class Character {
             destinationY = positionY;
         }
         if(dead) return;
-            /*if(new Vector2f(positionX, positionY).distance(new Vector2f(destinationX, destinationY)) > 10.0f) {
+            if(new Vector2f(positionX, positionY).distance(new Vector2f(destinationX, destinationY)) > 10.0f) {
                 setPosition(destinationX, destinationY);
             }
 
-            else*/ if ((int) positionX != (int) destinationX || (int) positionY != (int) destinationY) {
+            else if ((int) positionX != (int) destinationX || (int) positionY != (int) destinationY) {
             if (positionY < destinationY) {
                 positionY += delta * speed;
                 if (positionY >= destinationY) positionY = destinationY;
@@ -210,6 +211,9 @@ public class Character {
         int spriteWidth = getSpriteWidth();
         int spriteHeight = getSpriteHeight();
         AnimationType animationType = getCurrentAnimationType();
+
+
+
 
         if (inputInfo.isDownPressed()) {
             if (!level.isBlocked(posX + spriteWidth - 4, posY + spriteHeight + delta * speed)

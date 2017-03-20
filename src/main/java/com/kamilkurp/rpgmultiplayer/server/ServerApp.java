@@ -80,19 +80,7 @@ public class ServerApp extends BasicGame {
         });
     }
 
-    public static void main(String[] args) {
-        Input.disableControllers();
 
-        try {
-            AppGameContainer appgc = new AppGameContainer(new ServerApp("RPGMultiplayer Server"));
-            appgc.setDisplayMode(640, 480, false);
-            appgc.start();
-        } catch(SlickException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
     public void init(GameContainer gameContainer) throws SlickException {
         gameContainer.setShowFPS(false);
@@ -143,6 +131,21 @@ public class ServerApp extends BasicGame {
             }
         }
         return blocked;
+    }
+
+    public static void main(String[] args) {
+        Input.disableControllers();
+
+        try {
+            AppGameContainer appgc = new AppGameContainer(new ServerApp("RPGMultiplayer Server"));
+            appgc.setDisplayMode(640, 480, false);
+            appgc.setMinimumLogicUpdateInterval(20);
+            appgc.start();
+        } catch(SlickException e) {
+            e.printStackTrace();
+        }
+
+
     }
 }
 

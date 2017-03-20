@@ -22,7 +22,6 @@ import static com.kamilkurp.rpgmultiplayer.util.AnimationType.*;
 public class GamePlayState extends BasicGameState {
 
     private static boolean showFPS = true;
-    private static int fpsLimit = 60;
 
     private Map<Integer, Character> characters;
     private HashSet<Projectile> projectiles;
@@ -140,6 +139,10 @@ public class GamePlayState extends BasicGameState {
         Input input = gc.getInput();
         Character player = app.getPlayer();
         Client client = app.getClient();
+
+
+        System.out.println("pos " + player.getPositionX() + "\t" + player.getPositionY());
+        System.out.println("des " + player.getDestinationX() + "\t" + player.getDestinationY());
 
 
         InputInfo inputInfo = new InputInfo(player.getId(), input.isKeyDown(upKey), input.isKeyDown(downKey),
